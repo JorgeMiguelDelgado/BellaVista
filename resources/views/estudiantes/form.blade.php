@@ -14,7 +14,7 @@
             <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="name">
                 {{ __("Nombres") }}
             </label>
-            <input name="name" value="{{ old("nombres") ?? $estudiante->nombres }}" class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" id="nombres" type="text">
+            <input name="nombres" value="{{ old("nombres") ?? $estudiante->nombres }}" class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" id="nombres" type="text">
             <p class="text-gray-600 text-xs italic">{{ __("Nombre del estudiante") }}</p>
             @error("name")
             <div class="border border-red-400 rounded-b bg-red-100 mt-1 px-4 py-3 text-red-700">
@@ -29,7 +29,7 @@
             <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="name">
                 {{ __("Apellidos") }}
             </label>
-            <input name="name" value="{{ old("apellidos") ?? $estudiante->apellidos }}" class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" id="apellidos" type="text">
+            <input name="apellidos" value="{{ old("apellidos") ?? $estudiante->apellidos }}" class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" id="apellidos" type="text">
             <p class="text-gray-600 text-xs italic">{{ __("Apellidos del estudiante") }}</p>
             @error("name")
             <div class="border border-red-400 rounded-b bg-red-100 mt-1 px-4 py-3 text-red-700">
@@ -42,9 +42,9 @@
     <div class="flex flex-wrap -mx-3 mb-6">
         <div class="w-full px-3">
             <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="name">
-                {{ __("Nombres") }}
+                {{ __("Domicilio del Estudiante") }}
             </label>
-            <input name="name" value="{{ old("direccion") ?? $estudiante->direccion }}" class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" id="direccion" type="text">
+            <input name="direccion" value="{{ old("direccion") ?? $estudiante->direccion }}" class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" id="direccion" type="text">
             <p class="text-gray-600 text-xs italic">{{ __("Direccion de domicilio del estudiante") }}</p>
             @error("name")
             <div class="border border-red-400 rounded-b bg-red-100 mt-1 px-4 py-3 text-red-700">
@@ -59,7 +59,7 @@
             <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="name">
                 {{ __("Fecha de nacimiento") }}
             </label>
-            <input name="name" value="{{ old("fech_nac") ?? $estudiante->fech_nac }}" class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" id="fech_nac" type="date">
+            <input name="fech_nac" value="{{ old("fech_nac") ?? $estudiante->fech_nac }}" class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" id="fech_nac" type="date">
             <p class="text-gray-600 text-xs italic">{{ __("Fecha de nacimiento del estudiante") }}</p>
             @error("name")
             <div class="border border-red-400 rounded-b bg-red-100 mt-1 px-4 py-3 text-red-700">
@@ -74,7 +74,7 @@
             <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="name">
                 {{ __("Nombre del tutor o tutora a cargo") }}
             </label>
-            <input name="name" value="{{ old("tutor") ?? $estudiante->tutor }}" class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" id="tutor" type="text">
+            <input name="tutor" value="{{ old("tutor") ?? $estudiante->tutor }}" class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" id="tutor" type="text">
             <p class="text-gray-600 text-xs italic">{{ __("Nombre del tutor") }}</p>
             @error("name")
             <div class="border border-red-400 rounded-b bg-red-100 mt-1 px-4 py-3 text-red-700">
@@ -89,7 +89,7 @@
             <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="name">
                 {{ __("Telefono del tutor") }}
             </label>
-            <input name="name" value="{{ old("Telf_tutor") ?? $estudiante->Telf_tutor }}" class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" id="Telf_tutor" type="number">
+            <input name="Telf_tutor" value="{{ old("Telf_tutor") ?? $estudiante->Telf_tutor }}" class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" id="Telf_tutor" type="number">
             <p class="text-gray-600 text-xs italic">{{ __("Telefono/Celular del tutor") }}</p>
             @error("name")
             <div class="border border-red-400 rounded-b bg-red-100 mt-1 px-4 py-3 text-red-700">
@@ -104,7 +104,7 @@
             <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="name">
                 {{ __("Codigo de Autenticación") }}
             </label>
-            <input name="name" value="{{ old("autenticacion") ?? $estudiante->autenticacion }}" class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" id="autenticacion" type="password">
+            <input name="autenticacion" value="{{ old("autenticacion") ?? $estudiante->autenticacion }}" class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" id="autenticacion" type="password">
             <p class="text-gray-600 text-xs italic">{{ __("Codigo de autenticacion del estudiante") }}</p>
             @error("name")
             <div class="border border-red-400 rounded-b bg-red-100 mt-1 px-4 py-3 text-red-700">
@@ -123,9 +123,9 @@
                 {{ __("Género") }}
             </label>
             
-                <select name="name"  id="generos">
+                <select name="id_genero"  id="id_genero" class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500">
                 @foreach ($generos as $genero)
-                    <option value="{{ $genero->id }}">{{$genero->id->genero}}</option>
+                    <option value="{{ $genero->id }}">{{$genero->genero}}</option>
                 @endforeach
                 </select>
             

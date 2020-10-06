@@ -26,17 +26,23 @@
         <tbody>
             @forelse($estudiantes as $estudiante)
                 <tr>
-                    <td class="border px-4 py-2">{{ $estudiante->nombre }}</td>
+                    <td class="border px-4 py-2">{{ $estudiante->nombres }}</td>
                     <td class="border px-4 py-2">{{ $estudiante->apellidos }}</td>
                     <td class="border px-4 py-2">{{ $estudiante->direccion }}</td>
                     <td class="border px-4 py-2">{{ $estudiante->fech_nac }}</td>
                     <td class="border px-4 py-2">{{ $estudiante->tutor }}</td>
                     <td class="border px-4 py-2">{{ $estudiante->Telf_tutor }}</td>
                     <td class="border px-4 py-2">{{ $estudiante->autenticacion }}</td>
-                    <td class="border px-4 py-2">{{ $estudiante->generos->genero }}</td>
+
+                    @foreach($generos as $genero)
+                    @if($estudiante->id_genero == $genero->id)
+                    <td class="border px-4 py-2">{{$genero->genero}}</td>
+                    @endif
+                    @endforeach
+
                     <td class="border px-4 py-2">{{ date_format($estudiante->created_at, "d/m/Y") }}</td>
                     <td class="border px-4 py-2">
-                        <a href="{{ route("estudiante.edit", ["estudiante" => $estudiante]) }}" class="text-blue-400">{{ __("Editar") }}</a> |
+                        <a href="{{ route("estudiantes.edit", ["estudiante" => $estudiante]) }}" class="text-blue-400">{{ __("Editar") }}</a> |
                         <a
                             href="#"
                             class="text-red-400"

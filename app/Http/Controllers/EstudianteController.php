@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use App\Models\Genero;
 
 
+
 class EstudianteController extends Controller
 {
     /**
@@ -16,10 +17,15 @@ class EstudianteController extends Controller
      */
     public function index()
     {
-        $estudiantes=Estudiante::with("user")->paginate(10);
-        return view("estudiantes.index", compact("estudiantes",[
-            'genero'=>Genero::get()
-        ]));
+        /*$generos=Genero::get();
+        $estudiantes=Estudiante::get();*/
+        
+
+        $estudiantes=Estudiante::with("genero")->paginate(10);
+        return view("estudiantes.index", compact("estudiantes"),[
+            "generos"=>Genero::get()
+        ]);
+        
     
     }
 
@@ -30,15 +36,14 @@ class EstudianteController extends Controller
      */
     public function create()
     {
-        
+        $generos=Genero::get();
         $estudiante=new Estudiante;
         $title= __("Añadir Estudiante");
         $textButton=__("Crear");
         $route=route("estudiantes.store");
         return view("estudiantes.create", compact("title",
-        "textButton", "route", "estudiante",[
-            'generos'=>Genero::get()
-        ]));
+        "textButton", "route", "estudiante","generos"
+        ));
     
     }
 
@@ -50,7 +55,19 @@ class EstudianteController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $this->validate($request,[
+            "nombres"=>"required|max:90",
+            "apellidos"=>"required|max:90",
+            "direccion"=>"required|max:140",
+            "fech_nac"=>"required",
+            "tutor"=>"required|max:100",
+            "Telf_tutor"=>"required|max:20",
+            "autenticacion"=>"required|unique:estudiantes",
+            "id_genero"=>"required"
+        ]);
+        Estudiante::create($request->only("nombres","apellidos","direccion","fech_nac","tutor","Telf_tutor","autenticacion","id_genero"));
+        return redirect(route("estudiantes.index"))
+            ->with("success", __("¡Estudiante registrado!"));
     }
 
     /**
