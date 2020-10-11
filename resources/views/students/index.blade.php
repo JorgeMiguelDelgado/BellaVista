@@ -4,7 +4,7 @@
     <div class="flex justify-center flex-wrap bg-gray-200 p-4 mt-5">
         <div class="text-center">
         <h1 class="mb-5">{{ __("Lista de Estudiantes")}}</h1>
-        <a href="{{route("estudiantes.create")}}" class="bg-transparent hover:bg-blue-500 text-blue-700 font-semibold hover:text-white py-2 px-4 border border-blue-500 hover:border-transparent rounded">
+        <a href="{{route("students.create")}}" class="bg-transparent hover:bg-blue-500 text-blue-700 font-semibold hover:text-white py-2 px-4 border border-blue-500 hover:border-transparent rounded">
         {{ __("Añadir Estudiante")}}
         </a>
         </div>
@@ -20,37 +20,38 @@
             <th class="px-4 py-2">{{ __("Telefono del tutor")}}</th>
             <th class="px-4 py-2">{{ __("Autenticación")}}</th>
             <th class="px-4 py-2">{{ __("Género")}}</th>
+            <th class="px-4 py-2">{{ __("Fecha de Registro")}}</th>
             <th class="px-4 py-2">{{ __("Acciones")}}</th>
             </tr>
         </thead>
         <tbody>
-            @forelse($estudiantes as $estudiante)
+            @forelse($students as $student)
                 <tr>
-                    <td class="border px-4 py-2">{{ $estudiante->nombres }}</td>
-                    <td class="border px-4 py-2">{{ $estudiante->apellidos }}</td>
-                    <td class="border px-4 py-2">{{ $estudiante->direccion }}</td>
-                    <td class="border px-4 py-2">{{ $estudiante->fech_nac }}</td>
-                    <td class="border px-4 py-2">{{ $estudiante->tutor }}</td>
-                    <td class="border px-4 py-2">{{ $estudiante->Telf_tutor }}</td>
-                    <td class="border px-4 py-2">{{ $estudiante->autenticacion }}</td>
+                    <td class="border px-4 py-2">{{ $student->nombres }}</td>
+                    <td class="border px-4 py-2">{{ $student->apellidos }}</td>
+                    <td class="border px-4 py-2">{{ $student->direccion }}</td>
+                    <td class="border px-4 py-2">{{ $student->fech_nac }}</td>
+                    <td class="border px-4 py-2">{{ $student->tutor }}</td>
+                    <td class="border px-4 py-2">{{ $student->Telf_tutor }}</td>
+                    <td class="border px-4 py-2">{{ $student->autenticacion }}</td>
 
                     @foreach($generos as $genero)
-                    @if($estudiante->id_genero == $genero->id)
+                    @if($student->id_genero == $genero->id)
                     <td class="border px-4 py-2">{{$genero->genero}}</td>
                     @endif
                     @endforeach
 
-                    <td class="border px-4 py-2">{{ date_format($estudiante->created_at, "d/m/Y") }}</td>
+                    <td class="border px-4 py-2">{{ date_format($student->created_at, "d/m/Y") }}</td>
                     <td class="border px-4 py-2">
-                        <a href="{{ route("estudiantes.edit", ["estudiante" => $estudiante]) }}" class="text-blue-400">{{ __("Editar") }}</a> |
+                        <a href="{{ route("students.edit", ["student" => $student]) }}" class="text-blue-400">{{ __("Editar") }}</a> |
                         <a
                             href="#"
                             class="text-red-400"
                             onclick="event.preventDefault();
-                                document.getElementById('delete-estudiante-{{ $estudiante->id }}-form').submit();"
+                                document.getElementById('delete-student-{{ $student->id }}-form').submit();"
                         >{{ __("Eliminar") }}
                         </a>
-                        <form id="delete-estudiante-{{ $estudiante->id }}-form" action="{{ route("estudiantes.destroy", ["estudiante" => $estudiante]) }}" method="POST" class="hidden">
+                        <form id="delete-student-{{ $student->id }}-form" action="{{ route("students.destroy", ["student" => $student]) }}" method="POST" class="hidden">
                             @method("DELETE")
                             @csrf
                         </form>
@@ -72,9 +73,9 @@
     </table>
 
     
-    @if($estudiantes->count())
+    @if($students->count())
         <div class="mt-3">
-            {{ $estudiantes->links() }}
+            {{ $students->links() }}
         </div>
     @endif
 

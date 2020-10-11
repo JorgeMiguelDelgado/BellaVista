@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateTemasTable extends Migration
+class CreateThemesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,14 +13,14 @@ class CreateTemasTable extends Migration
      */
     public function up()
     {
-        Schema::create('temas', function (Blueprint $table) {
+        Schema::create('themes', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger("id_contenido");
             $table->unsignedBigInteger("id_materia");
             $table->unsignedBigInteger("id_unidad");
-            $table->foreign("id_contenido")->references("id")->on("contenidos");
-            $table->foreign("id_materia")->references("id")->on("materias");
-            $table->foreign("id_unidad")->references("id")->on("unidades");
+            $table->foreign("id_contenido")->references("id")->on("contents");
+            $table->foreign("id_materia")->references("id")->on("subjects");
+            $table->foreign("id_unidad")->references("id")->on("units");
             $table->timestamps();
         });
     }
@@ -32,6 +32,6 @@ class CreateTemasTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('temas');
+        Schema::dropIfExists('themes');
     }
 }

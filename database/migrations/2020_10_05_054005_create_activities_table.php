@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateActividadesTable extends Migration
+class CreateActivitiesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,7 +13,7 @@ class CreateActividadesTable extends Migration
      */
     public function up()
     {
-        Schema::create('actividad', function (Blueprint $table) {
+        Schema::create('activities', function (Blueprint $table) {
             $table->id();
             $table->date("fecha");
             $table->integer("nota");
@@ -21,9 +21,9 @@ class CreateActividadesTable extends Migration
             $table->unsignedBigInteger("id_tema");
             $table->unsignedBigInteger("id_prof");
             $table->unsignedBigInteger("id_estudiante");
-            $table->foreign("id_tema")->references("id")->on("temas");
-            $table->foreign("id_prof")->references("id")->on("profesores");
-            $table->foreign("id_estudiante")->references("id")->on("estudiantes");
+            $table->foreign("id_tema")->references("id")->on("themes");
+            $table->foreign("id_prof")->references("id")->on("teachers");
+            $table->foreign("id_estudiante")->references("id")->on("students");
             
             $table->timestamps();
         });
@@ -36,6 +36,6 @@ class CreateActividadesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('actividad');
+        Schema::dropIfExists('activities');
     }
 }

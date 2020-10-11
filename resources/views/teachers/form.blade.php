@@ -14,8 +14,8 @@
             <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="name">
                 {{ __("Nombres") }}
             </label>
-            <input name="nombres" value="{{ old("nombres") ?? $estudiante->nombres }}" class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" id="nombres" type="text">
-            <p class="text-gray-600 text-xs italic">{{ __("Nombre del estudiante") }}</p>
+            <input name="nombres" value="{{ old("nombres") ?? $teacher->nombres }}" class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" id="nombres" type="text">
+            <p class="text-gray-600 text-xs italic">{{ __("Nombre del profesor") }}</p>
             @error("name")
             <div class="border border-red-400 rounded-b bg-red-100 mt-1 px-4 py-3 text-red-700">
                 {{ $message }}
@@ -29,8 +29,8 @@
             <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="name">
                 {{ __("Apellidos") }}
             </label>
-            <input name="apellidos" value="{{ old("apellidos") ?? $estudiante->apellidos }}" class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" id="apellidos" type="text">
-            <p class="text-gray-600 text-xs italic">{{ __("Apellidos del estudiante") }}</p>
+            <input name="apellidos" value="{{ old("apellidos") ?? $teacher->apellidos }}" class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" id="apellidos" type="text">
+            <p class="text-gray-600 text-xs italic">{{ __("Apellidos del profesor") }}</p>
             @error("name")
             <div class="border border-red-400 rounded-b bg-red-100 mt-1 px-4 py-3 text-red-700">
                 {{ $message }}
@@ -42,10 +42,10 @@
     <div class="flex flex-wrap -mx-3 mb-6">
         <div class="w-full px-3">
             <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="name">
-                {{ __("Domicilio del Estudiante") }}
+                {{ __("Domicilio del profesor") }}
             </label>
-            <input name="direccion" value="{{ old("direccion") ?? $estudiante->direccion }}" class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" id="direccion" type="text">
-            <p class="text-gray-600 text-xs italic">{{ __("Direccion de domicilio del estudiante") }}</p>
+            <input name="direccion" value="{{ old("direccion") ?? $teacher->direccion }}" class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" id="direccion" type="text">
+            <p class="text-gray-600 text-xs italic">{{ __("Direccion de domicilio del profesor") }}</p>
             @error("name")
             <div class="border border-red-400 rounded-b bg-red-100 mt-1 px-4 py-3 text-red-700">
                 {{ $message }}
@@ -59,8 +59,8 @@
             <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="name">
                 {{ __("Fecha de nacimiento") }}
             </label>
-            <input name="fech_nac" value="{{ old("fech_nac") ?? $estudiante->fech_nac }}" class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" id="fech_nac" type="date">
-            <p class="text-gray-600 text-xs italic">{{ __("Fecha de nacimiento del estudiante") }}</p>
+            <input name="fech_nacimiento" value="{{ old("fech_nacimiento") ?? $teacher->fech_nacimiento }}" class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" id="fech_nacimiento" type="date">
+            <p class="text-gray-600 text-xs italic">{{ __("Fecha de nacimiento del profesor") }}</p>
             @error("name")
             <div class="border border-red-400 rounded-b bg-red-100 mt-1 px-4 py-3 text-red-700">
                 {{ $message }}
@@ -72,10 +72,10 @@
     <div class="flex flex-wrap -mx-3 mb-6">
         <div class="w-full px-3">
             <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="name">
-                {{ __("Nombre del tutor o tutora a cargo") }}
+                {{ __("Correo Electronico") }}
             </label>
-            <input name="tutor" value="{{ old("tutor") ?? $estudiante->tutor }}" class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" id="tutor" type="text">
-            <p class="text-gray-600 text-xs italic">{{ __("Nombre del tutor") }}</p>
+            <input name="email" value="{{ old("email") ?? $teacher->email }}" class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" id="email" type="text">
+            <p class="text-gray-600 text-xs italic">{{ __("Correo electronico del profesor") }}</p>
             @error("name")
             <div class="border border-red-400 rounded-b bg-red-100 mt-1 px-4 py-3 text-red-700">
                 {{ $message }}
@@ -87,10 +87,10 @@
     <div class="flex flex-wrap -mx-3 mb-6">
         <div class="w-full px-3">
             <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="name">
-                {{ __("Telefono del tutor") }}
+                {{ __("Nombre de usuario") }}
             </label>
-            <input name="Telf_tutor" value="{{ old("Telf_tutor") ?? $estudiante->Telf_tutor }}" class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" id="Telf_tutor" type="number">
-            <p class="text-gray-600 text-xs italic">{{ __("Telefono/Celular del tutor") }}</p>
+            <input name="usuario" value="{{ old("usuario") ?? $teacher->usuario }}" class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" id="usuario" type="text">
+            <p class="text-gray-600 text-xs italic">{{ __("Nombre de usuario del profesor") }}</p>
             @error("name")
             <div class="border border-red-400 rounded-b bg-red-100 mt-1 px-4 py-3 text-red-700">
                 {{ $message }}
@@ -102,10 +102,25 @@
     <div class="flex flex-wrap -mx-3 mb-6">
         <div class="w-full px-3">
             <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="name">
-                {{ __("Codigo de Autenticación") }}
+                {{ __("Contraseña de usuario") }}
             </label>
-            <input name="autenticacion" value="{{ old("autenticacion") ?? $estudiante->autenticacion }}" class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" id="autenticacion" type="password">
-            <p class="text-gray-600 text-xs italic">{{ __("Codigo de autenticacion del estudiante") }}</p>
+            <input name="password" value="{{ old("password") ?? $teacher->password }}" class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" id="password" type="text">
+            <p class="text-gray-600 text-xs italic">{{ __("Contraseña del profesor") }}</p>
+            @error("name")
+            <div class="border border-red-400 rounded-b bg-red-100 mt-1 px-4 py-3 text-red-700">
+                {{ $message }}
+            </div>
+            @enderror
+        </div>
+    </div>
+
+    <div class="flex flex-wrap -mx-3 mb-6">
+        <div class="w-full px-3">
+            <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="name">
+                {{ __("Teléfono/Celular del profesor") }}
+            </label>
+            <input name="telefono" value="{{ old("telefono") ?? $teacher->telefono }}" class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" id="telefono" type="text">
+            <p class="text-gray-600 text-xs italic">{{ __("Numero de celular del profesor") }}</p>
             @error("name")
             <div class="border border-red-400 rounded-b bg-red-100 mt-1 px-4 py-3 text-red-700">
                 {{ $message }}
@@ -130,7 +145,7 @@
                 </select>
             
             
-            <p class="text-gray-600 text-xs italic">{{ __("Género del estudiante") }}</p>
+            <p class="text-gray-600 text-xs italic">{{ __("Género del profesor") }}</p>
             @error("name")
             <div class="border border-red-400 rounded-b bg-red-100 mt-1 px-4 py-3 text-red-700">
                 {{ $message }}

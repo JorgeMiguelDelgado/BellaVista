@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateEvaluacionesTable extends Migration
+class CreateEvaluationsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,7 +13,7 @@ class CreateEvaluacionesTable extends Migration
      */
     public function up()
     {
-        Schema::create('evaluacion', function (Blueprint $table) {
+        Schema::create('evaluations', function (Blueprint $table) {
             $table->id();
             $table->string("descripcion");
             $table->date("fecha");
@@ -22,10 +22,10 @@ class CreateEvaluacionesTable extends Migration
             $table->unsignedBigInteger("id_tema");
             $table->unsignedBigInteger("id_estudiante");
             $table->unsignedBigInteger("id_prof");
-            $table->foreign("id_detalle")->references("id")->on("detalles");
-            $table->foreign("id_tema")->references("id")->on("temas");
-            $table->foreign("id_estudiante")->references("id")->on("estudiantes");
-            $table->foreign("id_prof")->references("id")->on("profesores");
+            $table->foreign("id_detalle")->references("id")->on("details");
+            $table->foreign("id_tema")->references("id")->on("themes");
+            $table->foreign("id_estudiante")->references("id")->on("students");
+            $table->foreign("id_prof")->references("id")->on("teachers");
             $table->timestamps();
         });
     }
@@ -37,6 +37,6 @@ class CreateEvaluacionesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('evaluacion');
+        Schema::dropIfExists('evaluations');
     }
 }
